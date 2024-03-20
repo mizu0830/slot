@@ -5,6 +5,17 @@ body{
     font-family: Arial, sans-serif;
 }
 
+#score{
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    margin: 16px auto;
+    color: #999;
+    text-align: center;
+    font-size: 30px;
+}
+
+
 main{
    width: 300px;
    background: #ecf0f1;
@@ -20,6 +31,8 @@ main{
     width: 90px;
     height: 110px;
     margin-bottom: 4px;
+    object-fit: contain;
+    background-color: #fff;
 }
 
 .stop{

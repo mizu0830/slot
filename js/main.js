@@ -26,7 +26,13 @@
                 if(panelsLeft === 0){
                     spin.classList.remove('inactive');
                     panelsLeft = 3;
-                    checkResult();
+                    let result = checkResult();
+                    if (result) {
+                        //当たった時の点数加算
+                        let score = Number(document.getElementById('score').innerHTML);
+                        score += 100;
+                        document.getElementById('score').innerHTML = String(score);
+                    } 
                 }
             })
 
@@ -39,9 +45,12 @@
 
         getRandomImage(){
             const images = [
-                'img/bell.png',
-                'img/cherry.png',
-                'img/seven.png',
+                // 'img/bell.png',
+                // 'img/cherry.png',
+                // 'img/seven.png',
+                'img/food_kakuni_manju.png',
+                'img/food_torisashi.png',
+                'img/space_food.png',
             ];
             return images[Math.floor(Math.random() * images.length)];
         }
@@ -73,15 +82,20 @@
     }
 
     function checkResult(){
+        let result = true;
         if(panels[0].isUnmatched(panels[1],panels[2])){
             panels[0].unmatch();
+            result = false;
         }
         if(panels[1].isUnmatched(panels[0],panels[2])){
             panels[1].unmatch();
+            result = false;
         }
         if(panels[2].isUnmatched(panels[0],panels[1])){
             panels[2].unmatch();
+            result = false;
         }
+        return result;
     }
 
     const panels = [
